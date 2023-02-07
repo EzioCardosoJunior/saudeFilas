@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ConsultaFilasService } from '../services/consulta-filas.service';
 
 @Component({
@@ -12,18 +12,16 @@ export class TelaConsultaComponent implements OnInit {
   content: any;
   iniciaisPaciente: any;
 
-  constructor(private router: Router, private consultaFilasService: ConsultaFilasService) { }
+  constructor(private router: Router, private consultaFilasService: ConsultaFilasService, private getRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.consultaFilasService.getConfig().subscribe((result: any) => {
+    const id = this.getRoute.snapshot.queryParams['data'];
+    this.consultaFilasService.getConfig(id).subscribe((result: any) => {
       console.log(result.result[0]
       )
       this.iniciaisPaciente = result.result[0].nomePacienteIniciais
       this.content = result.result
     });
+
   }
-
-
-
-
 }

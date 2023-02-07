@@ -8,12 +8,12 @@ import { HttpClient } from '@angular/common/http';
 
 export class ConsultaFilasService {
   
-  rotaUrl = "https://listadeespera.saude.sc.gov.br:8443/listadeespera/publico/lista/findByCnsOrCpfAndTipoLista/cpfCns/00405186983/tipoLista/2/false"
+  rotaUrl = "https://listadeespera.saude.sc.gov.br:8443/listadeespera/publico/lista/findByCnsOrCpfAndTipoLista/cpfCns/";
   
   constructor(  private http: HttpClient ) { }
   
 
-  getConfig() {  
-    return this.http.get(this.rotaUrl);  
+  getConfig(a: any) {  
+    return this.http.get(this.rotaUrl + a + "/tipoLista/2/false");  
   }
 }
