@@ -15,8 +15,9 @@ export class TelaConsultaComponent implements OnInit {
   constructor(private router: Router, private consultaFilasService: ConsultaFilasService, private getRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const id = this.getRoute.snapshot.queryParams['data'];
-    this.consultaFilasService.getConfig(id).subscribe((result: any) => {
+    const cpfCns = this.getRoute.snapshot.queryParams['data'];
+    const tipo = this.getRoute.snapshot.queryParams['tipo'];
+    this.consultaFilasService.getConfig(cpfCns, tipo).subscribe((result: any) => {
       console.log(result.result[0]
       )
       this.iniciaisPaciente = result.result[0].nomePacienteIniciais

@@ -23,9 +23,9 @@ export class HeaderComponent implements OnInit {
   };
 
   buscaDadosPaciente() {
-    this.router.navigate(['/app-tela-consulta'], { queryParams: {data: this.dadosPaciente.value.CpfCns} });
+    this.router.navigate(['/app-tela-consulta'], { queryParams: {data: this.dadosPaciente.value.CpfCns, tipo: this.dadosPaciente.value.TipoLista} });
     alert(this.dadosPaciente.value.TipoLista)
   }
-
+  
 
 }

@@ -13,7 +13,7 @@ export class ConsultaFilasService {
   constructor(  private http: HttpClient ) { }
   
 
-  getConfig(a: any) {  
-    return this.http.get(this.rotaUrl + a + "/tipoLista/2/false");  
+  getConfig(a: any, b: any) {  
+    return this.http.get(this.rotaUrl + a + "/tipoLista/" + b + "/false");  
   }
 }
