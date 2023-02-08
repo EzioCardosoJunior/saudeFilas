@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ConsultaFilasService } from '../services/consulta-filas.service';
+import { ConsultaFilasService } from '../../services/consulta-filas.service';
 
 @Component({
   selector: 'app-tela-consulta',
