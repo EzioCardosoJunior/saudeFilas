@@ -9,17 +9,19 @@
 
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
+
                 </ul>
                 <form class="d-flex" role="search" [formGroup]="dadosPaciente">
-                    <input formControlName="CpfCns" class="form-control me-2" type="search" placeholder="Digite seu CPF" aria-label="Search">
+                    <input formControlName="CpfCns" class="form-control mx-1" type="search" placeholder="Digite seu CPF"
+                        aria-label="Search">
                     <select formControlName="TipoLista" class="form-select" aria-label="Default select example">
                         <option selected>Tipo de listagem</option>
                         <option value="1">Aguardando</option>
                         <option value="2">Realizadas</option>
                         <option value="3">Outras</option>
-                      </select>
-                    <button class="btn btn-outline-success" (click)="buscaDadosPaciente()" type="submit">Busca</button>
+                    </select>
+                    <button class="btn btn-outline-success mx-1" (click)="buscaDadosPaciente()"
+                        type="submit">Busca</button>
                 </form>
             </div>
         </div>

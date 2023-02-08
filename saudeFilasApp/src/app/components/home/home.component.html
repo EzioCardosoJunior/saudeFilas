@@ -1,15 +1,44 @@
-<div class="card mt-4">
+<div class="mt-1 mt-1">{{1}}</div>
+<div class="card mt-5 mx-5">
     <div class="card-header">
-      Featured
+        Serviços oferecidos
     </div>
-    <div class="card-body ">
-      <h5 class="card-title">Serviços oferecidos</h5>
-      <p class="card-text">Selecione abaixo o tipo de serviço que deseja consultar.</p>
-      <a href="#!" class="btn btn-primary mx-3 mt-4">Go somewhere</a>
-      <a href="#!" class="btn btn-primary mx-3 mt-4">Go somewhere</a>
-      <a href="#!" class="btn btn-primary mx-3 mt-4">Go somewhere</a>
-      <a href="#!" class="btn btn-primary mx-3 mt-4">Go somewhere</a>
-      <a href="#!" class="btn btn-primary mx-3 mt-4">Go somewhere</a>
-      <a href="#!" class="btn btn-primary mx-3 mt-4">Go somewhere</a>
+    <div class="card-body">
+        <form action="" [formGroup]="tiposServico">
+            <h5 class="card-title">Filas</h5>
+            <p class="card-text">Selecione abaixo o tipo de serviço que deseja consultar.</p>
+            <div class="input-group">
+                <select formControlName="TipoServico" (change)="buscaDadosPacienteListas()" class="form-select mx-3 mt-4" aria-label="Default select example">
+                    <option value="0">Tipo de listagem</option>
+                    <option value="1">Aguardando</option>
+                    <option value="2">Realizadas</option>
+                    <option value="3">Outras</option>
+                </select>
+                <select class="form-select mx-3 mt-4" aria-label="Default select example">
+                    <option selected>Tipo de listagem</option>
+                    <option value="1">Aguardando</option>
+                    <option value="2">Realizadas</option>
+                    <option value="3">Outras</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <select class="form-select mx-3 mt-4" aria-label="Default select example">
+                    <option selected>Tipo de listagem</option>
+                    <option value="1">Aguardando</option>
+                    <option value="2">Realizadas</option>
+                    <option value="3">Outras</option>
+                </select>
+                <select class="form-select mx-3 mt-4" aria-label="Default select example">
+                    <option selected>Tipo de listagem</option>
+                    <option value="1">Aguardando</option>
+                    <option value="2">Realizadas</option>
+                    <option value="3">Outras</option>
+                </select>
+            </div>
+
+            <a href="#!" class="btn btn-primary mx-3 mt-4"><i class="bi bi-list-ol"></i> Consulta Lista de Espera</a>
+            <a href="#!" class="btn btn-primary mx-3 mt-4"><i class="bi bi-calendar-check"></i> Consulta Agendados</a>
+            <a href="#!" class="btn btn-primary mx-3 mt-4"><i class="bi bi-check2-square"></i> Consulta Atendidos</a>
+        </form>
     </div>
-  </div>
+</div>
