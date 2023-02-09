@@ -7,29 +7,47 @@
         <form action="" [formGroup]="tiposServico">
             <h5 class="card-title">Filas</h5>
             <p class="card-text">Selecione abaixo o tipo de serviço que deseja consultar.</p>
+            <p class="card-text">Aviso!
+                Os campos com * são obrigatórios e devem ser preenchidos para realizar a consulta;
+            </p>
+            <ul>
+                <li>A posição e a previsão de atendimento do paciente poderão ser alteradas de acordo com a gravidade do
+                    paciente ou por decisão judicial;
+                </li>
+                <li>A informação de estimativa de agendamento do paciente pode mostrar "indisponível" momentaneamente
+                    para o
+                    procedimento.
+                </li>
+
+            </ul>
+            Caso identifique que sua solicitação não se encontra na lista ou identificar algum problema, pedimos que
+            entre em contato com sua unidade de saúde.
+
             <div class="input-group">
-                <select formControlName="TipoServico" (change)="buscaDadosPacienteListas()" class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option value="0">Tipo de listagem</option>
-                    <option value="1">Aguardando</option>
-                    <option value="2">Realizadas</option>
-                    <option value="3">Outras</option>
+                <select formControlName="TipoServico" (change)="buscaDadosPacienteListas()"
+                    class="form-select mx-3 mt-4" aria-label="Default select example">
+                    <option value="0">* Serviço</option>
+                    <option value="1">Consultas</option>
+                    <option value="2">Exames</option>
+                    <option value="3">Cirurgia Eletiva</option>
+                    <option value="3">Outros</option>
                 </select>
                 <select class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option selected>Tipo de listagem</option>
-                    <option value="1">Aguardando</option>
-                    <option value="2">Realizadas</option>
-                    <option value="3">Outras</option>
+                    <option selected>Municipio Central</option>
+                    <option value="262">Siderópolis</option>
+                    <option value="273">Treviso</option>
+                    <option value="75">Criciúma</option>
                 </select>
             </div>
             <div class="input-group">
                 <select class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option selected>Tipo de listagem</option>
-                    <option value="1">Aguardando</option>
-                    <option value="2">Realizadas</option>
-                    <option value="3">Outras</option>
+                    <option selected>* Central de regulação / responsável</option>
+                    <option value="106">Central Reguladora Siderópolis</option>
+                    <option value="1488">Central Reguladora Treviso</option>
+                    <option value="111">Central Reguladora Criciúma</option>
                 </select>
                 <select class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option selected>Tipo de listagem</option>
+                    <option selected>Descrição do procedimento</option>
                     <option value="1">Aguardando</option>
                     <option value="2">Realizadas</option>
                     <option value="3">Outras</option>
