@@ -19,9 +19,12 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private consultaDescricao: ConsultaFilasService,
     private procedimentos: Procedimentos) { }
 
-  ngOnInit() {   
-
-    console.log(this.municipio)
+  ngOnInit() {
+    this.municipio = [{
+      "codigo": "0",
+      "nome": "Central Reguladora",
+    }];
+    console.log(this.descricao)
 
     this.tiposServico = new FormGroup({
       TipoServico: new FormControl(0),
@@ -34,18 +37,59 @@ export class HomeComponent implements OnInit {
   };
 
   buscaDadosPacienteListas() {
-   // alert(this.tiposServico.value.TipoServico)
+    // alert(this.tiposServico.value.TipoServico)
   }
 
   buscaDescricao() {
     this.descricao = this.procedimentos.DadosConsulta.result
-    console.log(this.descricao.result);
+    console.log(this.descricao);
 
   };
 
   buscaMunicipio() {
-    this.municipio = this.procedimentos.MunicipioCentral.result
-   console.log(this.municipio)
+    if (this.tiposServico.value.MunicipioCentral == 262) {
+      this.municipio = [
+        {
+          "codigo": 0,
+          "nome": "Central Reguladora"
+        },
+        {
+          "codigo": 106,
+          "nome": "Central Reguladora Siderópolis"
+        }
+      ];
+    } else if (this.tiposServico.value.MunicipioCentral == 75) {
+      this.municipio = [
+        {
+          "codigo": 0,
+          "nome": "Central Reguladora"
+        },
+        {
+          "codigo": 111,
+          "nome": "Central Reguladora Criciuma"
+        }
+      ];
+    } else if (this.tiposServico.value.MunicipioCentral == 273) {
+      this.municipio = [
+        {
+          "codigo": 0,
+          "nome": "Central Reguladora"
+        },
+        {
+          "codigo": 1488,
+          "nome": "Central Reguladora Treviso"
+        }
+      ];
+    } else {
+      this.municipio = [
+        {
+          "codigo": 0,
+          "nome": "Selecione um Município válido"
+        }
+      ];
+    }
+
+    console.log(this.municipio)
 
   };
 
