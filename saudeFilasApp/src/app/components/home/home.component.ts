@@ -19,7 +19,10 @@ export class HomeComponent implements OnInit {
     //this.tiposServico.value.TipoLista=1
     
     this.tiposServico = new FormGroup({
-      TipoServico: new FormControl(0)
+      TipoServico: new FormControl(0),
+      MunicipioCentral: new FormControl(0),
+      CentralRegulacaoResp: new FormControl(0),
+      DescricaoProcedimento: new FormControl(0)
     })
 
 
