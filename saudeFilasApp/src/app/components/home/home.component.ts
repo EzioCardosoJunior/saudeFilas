@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       TipoServico: new FormControl(0),
       MunicipioCentral: new FormControl(0),
       CentralRegulacaoResp: new FormControl(0),
-      DescricaoProcedimento: new FormControl(0)
+      DescricaoProcedimento: new FormControl('0009001')
     })
 
 
@@ -41,8 +41,16 @@ export class HomeComponent implements OnInit {
   }
 
   buscaDescricao() {
-    this.descricao = this.procedimentos.DadosConsulta.result
-    console.log(this.descricao);
+    if (this.tiposServico.value.TipoServico == 1) {
+      this.descricao = this.procedimentos.DadosConsulta.result
+      console.log(this.descricao);
+    }else if (this.tiposServico.value.TipoServico == 2){
+      this.descricao = this.procedimentos.DadosExame.result
+      console.log(this.descricao);
+    }else if (this.tiposServico.value.TipoServico == 3){
+      this.descricao = this.procedimentos.DadosCirurgia.result
+      console.log(this.descricao);
+    }
 
   };
 
@@ -50,20 +58,13 @@ export class HomeComponent implements OnInit {
     if (this.tiposServico.value.MunicipioCentral == 262) {
       this.municipio = [
         {
-          "codigo": 0,
-          "nome": "Central Reguladora"
-        },
-        {
           "codigo": 106,
           "nome": "Central Reguladora Siderópolis"
         }
       ];
+      this.buscaDescricao()
     } else if (this.tiposServico.value.MunicipioCentral == 75) {
       this.municipio = [
-        {
-          "codigo": 0,
-          "nome": "Central Reguladora"
-        },
         {
           "codigo": 111,
           "nome": "Central Reguladora Criciuma"
@@ -71,10 +72,7 @@ export class HomeComponent implements OnInit {
       ];
     } else if (this.tiposServico.value.MunicipioCentral == 273) {
       this.municipio = [
-        {
-          "codigo": 0,
-          "nome": "Central Reguladora"
-        },
+
         {
           "codigo": 1488,
           "nome": "Central Reguladora Treviso"
@@ -88,8 +86,6 @@ export class HomeComponent implements OnInit {
         }
       ];
     }
-
-    console.log(this.municipio)
 
   };
 
