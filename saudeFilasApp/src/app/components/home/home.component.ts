@@ -32,8 +32,6 @@ export class HomeComponent implements OnInit {
       CentralRegulacaoResp: new FormControl(0),
       DescricaoProcedimento: new FormControl('0009001')
     })
-
-
   };
 
   buscaDadosPacienteListas() {
@@ -49,6 +47,9 @@ export class HomeComponent implements OnInit {
       console.log(this.descricao);
     }else if (this.tiposServico.value.TipoServico == 3){
       this.descricao = this.procedimentos.DadosCirurgia.result
+      console.log(this.descricao);
+    }else if (this.tiposServico.value.TipoServico == 4){
+      this.descricao = this.procedimentos.DadosOutros.result
       console.log(this.descricao);
     }
 
