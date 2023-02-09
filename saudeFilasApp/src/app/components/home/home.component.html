@@ -30,27 +30,23 @@
                     <option value="1">Consultas</option>
                     <option value="2">Exames</option>
                     <option value="3">Cirurgia Eletiva</option>
-                    <option value="3">Outros</option>
+                    <option value="4">Outros</option>
                 </select>
-                <select class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option selected>Municipio Central</option>
+                <select class="form-select mx-3 mt-4" aria-label="Default select example" (change)="buscaMunicipio()">
+                    <option value="0">Municipio Central</option>
                     <option value="262">Siderópolis</option>
                     <option value="273">Treviso</option>
                     <option value="75">Criciúma</option>
                 </select>
             </div>
             <div class="input-group">
-                <select class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option selected>* Central de regulação / responsável</option>
-                    <option value="106">Central Reguladora Siderópolis</option>
-                    <option value="1488">Central Reguladora Treviso</option>
-                    <option value="111">Central Reguladora Criciúma</option>
+                <select class="form-select mx-3 mt-4" aria-label="Default select example" 
+                (change)="buscaDescricao()">
+                    <option value="{{central.codigo}}" *ngFor="let central of municipio">{{central.nome}}</option>
+                    
                 </select>
                 <select class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option selected>Descrição do procedimento</option>
-                    <option value="1">Aguardando</option>
-                    <option value="2">Realizadas</option>
-                    <option value="3">Outras</option>
+                    <option value="{{desc.codigo}}" *ngFor="let desc of descricao">{{desc.codigo}} - {{desc.descricao}} </option>                    
                 </select>
             </div>
 

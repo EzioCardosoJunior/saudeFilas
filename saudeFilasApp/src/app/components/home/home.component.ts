@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ConsultaFilasService } from 'src/app/services/consulta-filas.service';
+import { Procedimentos } from 'src/app/services/procedimento';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +13,16 @@ export class HomeComponent implements OnInit {
 
 
   public tiposServico!: FormGroup;
+  descricao: any;
+  municipio: any;
 
+  constructor(private router: Router, private consultaDescricao: ConsultaFilasService,
+    private procedimentos: Procedimentos) { }
 
-  constructor(private router: Router) { }
+  ngOnInit() {   
 
-  ngOnInit() {
-    //this.tiposServico.value.TipoLista=1
-    
+    console.log(this.municipio)
+
     this.tiposServico = new FormGroup({
       TipoServico: new FormControl(0),
       MunicipioCentral: new FormControl(0),
@@ -29,8 +34,20 @@ export class HomeComponent implements OnInit {
   };
 
   buscaDadosPacienteListas() {
-    alert(this.tiposServico.value.TipoServico)
+   // alert(this.tiposServico.value.TipoServico)
   }
 
+  buscaDescricao() {
+    this.descricao = this.procedimentos.DadosConsulta.result
+    console.log(this.descricao.result);
+
+  };
+
+  buscaMunicipio() {
+    this.municipio = this.procedimentos.MunicipioCentral.result
+   console.log(this.municipio)
+
+  };
 
 }
+
