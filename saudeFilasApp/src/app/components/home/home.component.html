@@ -26,26 +26,21 @@
             <div class="input-group">
                 <select formControlName="TipoServico" (change)="buscaDadosPacienteListas()"
                     class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option value="0">* Serviço</option>
-                    <option value="1">Consultas</option>
-                    <option value="2">Exames</option>
-                    <option value="3">Cirurgia Eletiva</option>
-                    <option value="4">Outros</option>
+                    <option value="{{tipo.codigo}}" *ngFor="let tipo of tipoBusca">{{tipo.nome}}</option>
                 </select>
-                <select formControlName="MunicipioCentral" class="form-select mx-3 mt-4" aria-label="Default select example" (change)="buscaMunicipio()">
-                    <option value="0">Municipio Central</option>
-                    <option value="262">Siderópolis</option>
-                    <option value="273">Treviso</option>
-                    <option value="75">Criciúma</option>
+                <select formControlName="MunicipioCentral" class="form-select mx-3 mt-4"
+                    aria-label="Default select example" (change)="buscaMunicipio()">
+                    <option value="{{city.codigo}}" *ngFor="let city of municipioCentral">{{city.nome}}</option>
                 </select>
             </div>
             <div class="input-group">
                 <select class="form-select mx-3 mt-4" aria-label="Default select example" (change)="buscaDescricao()">
                     <option value="{{central.codigo}}" *ngFor="let central of municipio">{{central.nome}}</option>
-                    
                 </select>
-                <select formControlName="DescricaoProcedimento" class="form-select mx-3 mt-4" aria-label="Default select example">
-                    <option value="{{desc.codigo}}" *ngFor="let desc of descricao">{{desc.codigo}} - {{desc.descricao}} </option>                    
+                <select formControlName="DescricaoProcedimento" class="form-select mx-3 mt-4"
+                    aria-label="Default select example">
+                    <option value="{{desc.codigo}}" *ngFor="let desc of descricao">{{desc.codigo}} - {{desc.descricao}}
+                    </option>
                 </select>
             </div>
 

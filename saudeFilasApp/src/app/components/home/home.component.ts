@@ -13,18 +13,62 @@ export class HomeComponent implements OnInit {
 
 
   public tiposServico!: FormGroup;
+  municipioCentral: any;
   descricao: any;
   municipio: any;
+  tipoBusca: any;
 
   constructor(private router: Router, private consultaDescricao: ConsultaFilasService,
     private procedimentos: Procedimentos) { }
 
   ngOnInit() {
+    this.municipioCentral = [
+      {
+        "codigo": "0",
+        "nome": "Município Central",
+      },
+      {
+        "codigo": "262",
+        "nome": "Siderópolis",
+      },
+      {
+        "codigo": "273",
+        "nome": "Treviso",
+      },
+      {
+        "codigo": "75",
+        "nome": "Criciúma",
+      }      
+    ]
+
     this.municipio = [{
       "codigo": "0",
       "nome": "Central Reguladora",
     }];
-    console.log(this.descricao)
+
+    this.tipoBusca = [
+      {
+        "codigo": "0",
+        "nome": "* Serviços",
+      },
+      {
+        "codigo": "1",
+        "nome": "Consultas",
+      },
+      {
+        "codigo": "2",
+        "nome": "Exames",
+      },
+      {
+        "codigo": "3",
+        "nome": "Cirurgias Eletivas",
+      },
+      {
+        "codigo": "4",
+        "nome": "Outros",
+      },
+    ];
+
 
     this.tiposServico = new FormGroup({
       TipoServico: new FormControl(0),
@@ -34,21 +78,21 @@ export class HomeComponent implements OnInit {
     })
   };
 
-  buscaDadosPacienteListas() {
-    // alert(this.tiposServico.value.TipoServico)
+  buscaDadosPacienteListas() {    
+    alert(this.tiposServico.value.MunicipioCentral)
   }
 
   buscaDescricao() {
     if (this.tiposServico.value.TipoServico == 1) {
       this.descricao = this.procedimentos.DadosConsulta.result
       console.log(this.descricao);
-    }else if (this.tiposServico.value.TipoServico == 2){
+    } else if (this.tiposServico.value.TipoServico == 2) {
       this.descricao = this.procedimentos.DadosExame.result
       console.log(this.descricao);
-    }else if (this.tiposServico.value.TipoServico == 3){
+    } else if (this.tiposServico.value.TipoServico == 3) {
       this.descricao = this.procedimentos.DadosCirurgia.result
       console.log(this.descricao);
-    }else if (this.tiposServico.value.TipoServico == 4){
+    } else if (this.tiposServico.value.TipoServico == 4) {
       this.descricao = this.procedimentos.DadosOutros.result
       console.log(this.descricao);
     }
